@@ -20,6 +20,11 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@pinia/nuxt"],
+  runtimeConfig: {
+    public: {
+      baseUrl: "",
+    },
+  },
   app: {
     head: {
       link: [

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { getTutors } from "~/api/requests/tutor.requests";
+import type CardVue from "~/components/atoms/Card.vue";
 import { useTutorStore } from "~/stores/tutors/store";
 
 defineOptions({
@@ -12,11 +14,14 @@ useHead({
 const state = useTutorStore();
 
 onBeforeMount(() => {
-  state.setTutors([{ name: "John Doe" }]);
-  console.log(state.getTutors);
+  getTutors().then((data) => {
+    state.setTutors(data);
+    console.log(state.getTutors);
+  });
 });
 </script>
 
 <template>
-  <div>sosite jhopi</div>
+  <div>Hello World! Tutors Page</div>
+  <CardVue />
 </template>
