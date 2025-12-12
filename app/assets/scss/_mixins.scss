@@ -1,0 +1,21 @@
+@mixin display($gap: 0, $padding: 0, $display: flex) {
+  display: $display;
+  gap: $gap;
+  padding: $padding;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin color($color, $background-color: transparent) {
+  color: $color;
+  background-color: $background-color;
+}
+
+@mixin direction($direction: row, $justify: flex-start, $align: stretch) {
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

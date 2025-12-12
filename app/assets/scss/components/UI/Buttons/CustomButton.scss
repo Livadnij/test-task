@@ -1,0 +1,25 @@
+.custom-button {
+  @include display(0, 12px 24px, inline-flex);
+  @include size(93px, 40px);
+  @include direction(row, center, center);
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+
+  &--primary {
+    @include color($white, $color-primary);
+  }
+
+  &--secondary {
+    @include color($text-primary, $white);
+    border: 1px solid $border-color;
+  }
+
+  &--navigation {
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

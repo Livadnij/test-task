@@ -1,0 +1,11 @@
+.navigation-button {
+  @include display(0, 8px 12px, inline-flex);
+  @include size(93px, 40px);
+  @include direction(row, center, center);
+  border-radius: $border-radius;
+  @include color($text-primary);
+
+  &--selected {
+    @include color($color-primary, $color-primary-pale);
+  }
+}
