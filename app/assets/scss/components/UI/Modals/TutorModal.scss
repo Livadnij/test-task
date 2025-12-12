@@ -1,0 +1,55 @@
+.tutor-modal--backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.tutor-modal {
+  @include color($text-primary);
+  @include display(12px, 40px 24px 32px 24px);
+  @include direction(column, flex-start, flex-start);
+  background: $white;
+  border-radius: 16px;
+  width: min(438px, 90vw);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  position: relative;
+
+  &--close {
+    position: absolute;
+    top: 17px;
+    right: 24px;
+    background: transparent;
+    color: $text-secondary;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  &--teachers-name {
+    font-size: 16px;
+    font-weight: medium;
+  }
+
+  &--teachers-grade {
+    @include display(15px, 0, inline-flex);
+    @include color($text-secondary);
+    font-size: 16px;
+  }
+  &--description {
+    font-size: 14px;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

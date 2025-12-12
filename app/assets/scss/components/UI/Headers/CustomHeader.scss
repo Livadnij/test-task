@@ -1,0 +1,42 @@
+.layout-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 64px;
+  align-items: center;
+  border-bottom: 1px solid $border-color;
+  padding: 0 16px;
+
+  > *:nth-child(1) {
+    justify-self: start;
+  }
+
+  > *:nth-child(2) {
+    justify-self: end;
+  }
+
+  > *:nth-child(3) {
+    display: none;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 16px;
+  }
+
+  @media (min-width: $bp-tablet) {
+    padding: 0 24px;
+    grid-template-columns: repeat(3, 1fr);
+
+    > *:nth-child(2) {
+      justify-self: center;
+    }
+
+    > *:nth-child(3) {
+      display: initial;
+    }
+
+    .button-group {
+      gap: 32px;
+    }
+  }
+}

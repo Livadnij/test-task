@@ -9,5 +9,5 @@ useHead({
 </script>
 
 <template>
-  <div>123123123</div>
+  <div>Hello World! Index Page</div>
 </template>

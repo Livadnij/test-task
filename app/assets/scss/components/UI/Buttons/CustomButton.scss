@@ -1,10 +1,12 @@
 .custom-button {
-  @include display(0, 12px 24px, inline-flex);
-  @include size(93px, 40px);
+  @include display(4, 8px 16px, inline-flex);
   @include direction(row, center, center);
   border: none;
   cursor: pointer;
   transition: background-color 150ms ease;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
 
   &--primary {
     @include color($white, $color-primary);

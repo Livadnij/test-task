@@ -6,6 +6,8 @@ import type { TutorsStore } from './interface'
 export const useTutorStore = defineStore('tutor', {
     state: (): TutorsStore => ({
         tutors: [],
+        selectedTutorId: null,
+        isTutorModalOpen: false,
     }),
     actions,
     getters,
