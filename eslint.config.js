@@ -55,4 +55,23 @@ export default [
       '@stylistic/block-spacing': 'error',
     },
   },
+
+  {
+    files: ['**/*.test.ts', '**/*.spec.ts'],
+    languageOptions: {
+      globals: {
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        test: 'readonly',
+        vi: 'readonly',
+        beforeEach: 'readonly',
+        afterEach: 'readonly',
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      'vue/one-component-per-file': 'off',
+    },
+  },
 ]
