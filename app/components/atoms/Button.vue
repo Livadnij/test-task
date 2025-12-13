@@ -1,26 +1,26 @@
 <script setup lang="ts">
 defineOptions({
-  name: "CustomButton",
-});
+  name: 'CustomButton',
+})
 
 interface ButtonProps {
-  variant?: "primary" | "secondary";
-  click?: () => void;
+  variant?: 'primary' | 'secondary';
   selected?: boolean;
   disabled?: boolean;
+  click?: () => void;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  variant: "primary",
-  click: () => {},
+  variant: 'primary',
   selected: false,
   disabled: false,
-});
+  click: () => {},
+})
 
 const handleClick = () => {
-  if (props.disabled) return;
-  props.click?.();
-};
+  if (props.disabled) return
+  props.click?.()
+}
 </script>
 
 <template>

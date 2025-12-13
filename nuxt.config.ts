@@ -1,11 +1,11 @@
-import { resolve } from "path";
+import { resolve } from 'path'
 
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  css: ["@/assets/scss/global.scss"],
+  css: ['@/assets/scss/global.scss'],
   alias: {
-    "@assets": resolve(__dirname, "app/assets"),
+    '@assets': resolve(__dirname, 'app/assets'),
   },
   ssr: false,
   vite: {
@@ -19,20 +19,20 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@pinia/nuxt"],
+  modules: ['@pinia/nuxt'],
   runtimeConfig: {
     public: {
-      baseUrl: "",
+      baseUrl: '',
     },
   },
   app: {
     head: {
       link: [
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap",
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300,..900;1,300..900&display=swap',
         },
       ],
     },
   },
-});
+})

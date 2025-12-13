@@ -5,6 +5,8 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "lint": "eslint",
+    "fix": "eslint --fix",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -21,7 +23,14 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@stylistic/eslint-plugin": "^5.6.1",
     "@types/node": "^25.0.0",
-    "sass": "^1.96.0"
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^10.6.2",
+    "sass": "^1.96.0",
+    "typescript-eslint": "^8.49.0"
   }
 }

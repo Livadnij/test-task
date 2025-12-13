@@ -4,11 +4,12 @@ import { getters } from './getters'
 import type { TutorsStore } from './interface'
 
 export const useTutorStore = defineStore('tutor', {
-    state: (): TutorsStore => ({
-        tutors: [],
-        selectedTutorId: null,
-        isTutorModalOpen: false,
-    }),
-    actions,
-    getters,
+  state: (): TutorsStore => ({
+    tutors: [],
+    selectedTutorId: null,
+    selectedTutor: null,
+    isTutorModalOpen: false,
+  }),
+  actions,
+  getters,
 })

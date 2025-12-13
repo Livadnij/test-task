@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import NavigationButtonVue from "../atoms/NavigationButton.vue";
-import Logo from "@assets/images/logo.svg";
+import NavigationButtonVue from '../atoms/NavigationButton.vue'
+import Logo from '@assets/images/logo.svg'
 import {
   faHome,
   faGraduationCap,
   type IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
-const goHome = () => router.push("/");
-const goTutors = () => router.push("/tutors");
+const router = useRouter()
+const goHome = () => {
+  void router.push('/')
+}
+const goTutors = () => {
+  void router.push('/tutors')
+}
 
 interface ButtonOption {
   text: string;
@@ -20,26 +25,30 @@ interface ButtonOption {
 
 const buttonOptions: ButtonOption[] = [
   {
-    text: "Home",
+    text: 'Home',
     icon: faHome,
-    route: "/",
+    route: '/',
     onClick: goHome,
   },
   {
-    text: "Tutors",
+    text: 'Tutors',
     icon: faGraduationCap,
-    route: "/tutors",
+    route: '/tutors',
     onClick: goTutors,
   },
-];
+]
 </script>
 
 <template>
   <header class="layout-header">
-    <img :src="Logo" alt="App icon" />
+    <img
+      :src="Logo"
+      alt="App icon"
+    />
     <div class="button-group">
       <NavigationButtonVue
         v-for="option in buttonOptions"
+        :key="option.route"
         :variant="'navigation'"
         :click="option.onClick"
         :text="option.text"

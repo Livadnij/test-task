@@ -1,25 +1,36 @@
 .card {
   @include color($text-primary);
-  @include display(10px);
-  @include direction(column);
+  @include display(16px);
+  @include direction(row);
   border-radius: 16px;
   border: 1px solid $border-color;
   padding: 16px;
 
-  &--teachers-name {
+  &__info-container {
+    @include display(10px);
+    @include direction(column);
+  }
+
+  &__image-container {
+    img {
+      @include size(65px, auto);
+    }
+  }
+
+  &__teachers-name {
     font-size: 16px;
     font-weight: medium;
   }
 
-  &--teachers-grade {
+  &__teachers-grade {
     @include display(15px, 0, inline-flex);
     @include color($text-secondary);
     font-size: 16px;
   }
-  &--actions {
+  &__actions {
     @include display(15px, 0, flex);
   }
-  &--description {
+  &__description {
     font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;

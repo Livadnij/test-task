@@ -1,45 +1,66 @@
 <script setup lang="ts">
-import ButtonVue from "../atoms/Button.vue";
+import ButtonVue from '../atoms/Button.vue'
 
 defineOptions({
-  name: "CustomCard",
-});
+  name: 'CustomCard',
+})
 
 interface CardProps {
   teachersName: string;
   description: string;
-  studentsCount: string;
-  occupation: string;
+  studentsCount?: number;
+  occupation?: string;
+  photo?: string;
 }
 
-const props = defineProps<CardProps>();
+withDefaults(defineProps<CardProps>(), {
+  studentsCount: 0,
+  occupation: '',
+  photo: '',
+})
 
 const emit = defineEmits<{
-  (event: "book"): void;
-  (event: "read-more"): void;
-}>();
+  (event: 'book'): void;
+  (event: 'read-more'): void;
+}>()
 
-const handleBook = () => emit("book");
-const handleReadMore = () => emit("read-more");
+const handleBook = () => emit('book')
+const handleReadMore = () => emit('read-more')
 </script>
 
 <template>
   <div class="card">
-    <h4 class="card--teachers-name">{{ teachersName }}</h4>
-    <div class="card--teachers-grade">
-      <span> {{ occupation }}</span>
-      <span> Students: {{ studentsCount }}</span>
+    <div class="card__image-container">
+      <img
+        :src="photo"
+        :alt="teachersName"
+      />
     </div>
-    <p class="card--description">
-      {{ description }}
-    </p>
-    <div class="card--actions">
-      <ButtonVue variant="primary" @click="handleBook">
-        Book a lesson
-      </ButtonVue>
-      <ButtonVue variant="secondary" @click="handleReadMore">
-        Read more
-      </ButtonVue>
+    <div class="card__info-container">
+      <h4 class="card__teachers-name">
+        {{ teachersName }}
+      </h4>
+      <div class="card__teachers-grade">
+        <span> {{ occupation }}</span>
+        <span> Students: {{ studentsCount }}</span>
+      </div>
+      <p class="card__description">
+        {{ description }}
+      </p>
+      <div class="card__actions">
+        <ButtonVue
+          variant="primary"
+          @click="handleBook"
+        >
+          Book a lesson
+        </ButtonVue>
+        <ButtonVue
+          variant="secondary"
+          @click="handleReadMore"
+        >
+          Read more
+        </ButtonVue>
+      </div>
     </div>
   </div>
 </template>

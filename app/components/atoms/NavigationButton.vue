@@ -1,32 +1,35 @@
 <script setup lang="ts">
-import { type IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { type IconDefinition } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 defineOptions({
-  name: "CustomNavigationButton",
-});
+  name: 'CustomNavigationButton',
+})
 
 interface ButtonProps {
-  click?: () => void;
+  text: string;
+  route: string;
+  icon?: IconDefinition | null;
   selected?: boolean;
   disabled?: boolean;
-  text: string;
-  icon?: IconDefinition;
-  route: string;
+  click?: () => void;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  click: () => {},
   selected: false,
   disabled: false,
-});
+  click: () => {},
+  icon: null,
+})
 
-const route = useRoute();
-const isCurrentPage = computed(() => route.path === props.route);
+const url = useRoute()
+const isCurrentPage = computed(() => url.path === props.route)
 
 const handleClick = () => {
-  if (props.disabled) return;
-  props.click?.();
-};
+  if (props.disabled) return
+  props.click?.()
+}
 </script>
 
 <template>
@@ -39,8 +42,11 @@ const handleClick = () => {
     ]"
     @click="handleClick"
   >
-    <FontAwesomeIcon v-if="icon" :icon="icon" />
-    <span class="navigation-button--text">{{ text }}</span>
+    <FontAwesomeIcon
+      v-if="icon"
+      :icon="icon"
+    />
+    <span class="navigation-button__text">{{ text }}</span>
   </button>
 </template>
 

@@ -1,13 +1,15 @@
 <script lang="ts" setup>
+import { useHead } from '#imports'
+
 defineOptions({
-  name: "Index",
-});
+  name: 'Index',
+})
 
 useHead({
-  title: "Home",
-});
+  title: 'Brighterly | Home',
+})
 </script>
 
 <template>
-  <div>Hello World! Index Page</div>
+  <div class="page-index" />
 </template>

@@ -3,21 +3,39 @@
   @include direction(row, center, center);
   border: none;
   cursor: pointer;
-  transition: background-color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease;
   font-weight: bold;
   font-size: 16px;
   border-radius: 8px;
 
   &--primary {
     @include color($white, $color-primary);
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: $main-button-hover;
+      }
+
+      &:active {
+        background-color: $main-button-press;
+      }
+    }
   }
 
   &--secondary {
-    @include color($text-primary, $white);
+    @include color($text-tertiary, $white);
     border: 1px solid $border-color;
-  }
 
-  &--navigation {
+    &:not(:disabled) {
+      &:hover {
+        background-color: $secondary-button-hover;
+      }
+
+      &:active {
+        background-color: $secondary-button-hover;
+        color: $text-primary;
+      }
+    }
   }
 
   &:disabled {
