@@ -17,6 +17,12 @@ defineOptions({
 
 useHead({
   title: 'Brighterly | Tutors',
+    meta: [
+    { name: 'description', content: 'Browse and book math and reading tutors.' },
+    { property: 'og:title', content: 'Brighterly Tutors' },
+    { property: 'og:description', content: 'Find the right tutor for your child.' },
+    { property: 'og:type', content: 'website' },
+  ],
 })
 
 const store = useTutorStore()
